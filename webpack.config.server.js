@@ -5,7 +5,7 @@ const CWD = process.cwd();
 
 const config = {
   name: "server",
-  entry: [ path.join(CWD, './server/server.js') ],
+  entry: [path.join(CWD, './server/server.js')],
   target: "node",
   output: {
     path: path.join(CWD, '/dist/'),
@@ -20,6 +20,10 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+        use: 'file-loader'
       }
     ]
   }

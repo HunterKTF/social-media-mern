@@ -7,7 +7,7 @@ const config = {
   mode: "development",
   devtool: 'eval-source-map',
   entry: [
-    'webpack-hot-middleware/client?reload=true', 
+    'webpack-hot-middleware/client?reload=true',
     path.join(CWD, 'client/main.js')
   ],
   output: {
@@ -21,6 +21,10 @@ const config = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+        use: 'file-loader'
       }
     ]
   },
