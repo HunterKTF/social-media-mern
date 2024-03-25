@@ -15,11 +15,11 @@ class Home extends React.Component {
       }}>
         <Typography variant='h6' sx={{
           padding: '10px 20px 12px',
-          color: 'theme.palette.secondary'
+          color: '#000000'
         }}>Home Page</Typography>
         <CardMedia sx={{ minHeight: 400 }} component="img" image={unicornbikeImg} title='Unicorn Bicycle' />
         <CardContent>
-          <Typography variant='body2' component='p'>
+          <Typography variant='body2' component='p' sx={{ color: "#2c23a1" }}>
             Welcome to the MERN Skeleton home page.
           </Typography>
         </CardContent>
