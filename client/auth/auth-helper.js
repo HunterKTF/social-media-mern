@@ -1,4 +1,4 @@
-import signout from './api-auth';
+import { signout } from './api-auth';
 
 const auth = {
   isAuthenticated() {
@@ -7,20 +7,20 @@ const auth = {
     }
 
     if (sessionStorage.getItem('jwt')) {
-      return JSON.parse(sessionStorage.getItem('jwt'));
+      return JSON.parse(sessionStorage.getItem('jwt'))
     } else {
       return false;
     }
   },
   authenticate(jwt, cb) {
     if (typeof window !== "undefined") {
-      sessionStorage.setItem('jwt', JSON.stringify(jwt));
+      sessionStorage.setItem('jwt', JSON.stringify(jwt))
     }
-    cb();
+    cb()
   },
   clearJWT(cb) {
     if (typeof window !== "undefined") {
-      sessionStorage.removeItem('jwt');
+      sessionStorage.removeItem('jwt')
     }
     cb();
 

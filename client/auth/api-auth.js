@@ -1,6 +1,3 @@
-/** Creating authorization methods for client side */
-
-// Sign-in
 const signin = async (user) => {
   try {
     let response = await fetch('/auth/signin/', {
@@ -11,23 +8,23 @@ const signin = async (user) => {
       },
       credentials: 'include',
       body: JSON.stringify(user)
-    });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
+    })
+    return await response.json()
+  } catch(err) {
+    console.log(err)
   }
 }
 
-// Sign-out
 const signout = async () => {
   try {
-    let response = await fetch('/auth/signout/', {
-      method: 'GET'
-    });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
+    let response = await fetch('/auth/signout/', { method: 'GET' })
+    return await response.json()
+  } catch(err) {
+    console.log(err)
   }
 }
 
-export default { signin, signout }
+export {
+  signin,
+  signout
+}

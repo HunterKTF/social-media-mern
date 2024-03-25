@@ -2,9 +2,10 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import auth from './../auth/auth-helper';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Menu() {
+  const navigate = useNavigate();
   return (
     <AppBar position='static'>
       <Toolbar>
@@ -35,7 +36,7 @@ function Menu() {
               <Button color='secondary'>My Profile</Button>
             </Link>
             <Button color='inherit' onClick={() => {
-              auth.clearJWT(() => history.push('/'))
+              auth.clearJWT(() => navigate('/'))
             }}>Sign out</Button>
           </span>)
         }
