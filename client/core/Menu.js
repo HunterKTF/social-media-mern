@@ -6,6 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Menu() {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  };
+
   return (
     <AppBar position='static'>
       <Toolbar>
@@ -36,7 +41,7 @@ function Menu() {
               <Button color='secondary'>My Profile</Button>
             </Link>
             <Button color='inherit' onClick={() => {
-              auth.clearJWT(() => navigate('/'))
+              auth.clearJWT(handleClick)
             }}>Sign out</Button>
           </span>)
         }

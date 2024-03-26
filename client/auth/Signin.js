@@ -36,7 +36,7 @@ function Signin(props) {
 
   const { redirectToReferrer } = values
   if (redirectToReferrer) {
-    return (<Navigate tp={"/"}/>);
+    return (<Navigate to={"/"}/>);
   }
 
   return (

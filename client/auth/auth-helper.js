@@ -25,7 +25,7 @@ const auth = {
     cb();
 
     // Optional
-    signout.then((data) => {
+    signout().then(() => {
       document.cookie = "t=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
     });
   }

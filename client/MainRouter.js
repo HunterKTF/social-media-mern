@@ -6,8 +6,8 @@ import Menu from './core/Menu';
 import Users from './user/Users';
 import Signup from './user/Signup';
 import Signin from './auth/Signin';
+import Profile from './user/Profile';
 // import EditProfile from './user/EditProfile';
-// import Profile from './user/Profile';
 // import PrivateRoute from './auth/PrivateRoute';
 
 const MainRouter = () => {
@@ -19,6 +19,8 @@ const MainRouter = () => {
         <Route path='/users' element={<Users />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
+
+        <Route path='/user/:userId' element={<Profile />} />
       </Routes>
     </div>
   );
