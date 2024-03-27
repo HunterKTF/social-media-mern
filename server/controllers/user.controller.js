@@ -70,11 +70,12 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    let user = req.profile;
-    let deletedUser = await user.remove();
-    deletedUser.hashed_password = undefined;
-    deletedUser.salt = undefined;
-    res.json(deletedUser);
+    User.findByIdAndDelete(req.params.userId)
+    .exec()
+    .then(doc => {
+      if (!doc) { return res.status(404).end() }
+      return res.status(204).json({ message: "User has been deleted" })
+    })
   } catch (err) {
     return res.status(400).json({
       error: errorHandler.getErrorMessage(err)

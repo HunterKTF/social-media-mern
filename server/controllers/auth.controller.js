@@ -46,8 +46,9 @@ const hasAuthorization = (req, res, next) => {
   next();
 }
 
-export default { signin, 
-  signout, 
-  requireSignin, 
-  hasAuthorization 
+export default {
+  signin,
+  signout,
+  requireSignin,
+  hasAuthorization
 };

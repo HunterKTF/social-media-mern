@@ -7,7 +7,7 @@ import auth from './../auth/auth-helper';
 import { read, update } from './api-user';
 import { Navigate } from 'react-router-dom';
 
-function EditProfile({ match }) {
+function EditProfile() {
   const [values, setValues] = useState({
     name: '',
     password: '',
@@ -17,13 +17,14 @@ function EditProfile({ match }) {
     redirectToProfile: false
   });
   const jwt = auth.isAuthenticated();
+  let match = jwt.user;
 
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
     read({
-      userId: match.params.userId
+      userId: match._id
     }, { t: jwt.token }, signal).then((data) => {
       if (data && data.error) {
         setValues({ ...values, error: data.error });
@@ -32,9 +33,9 @@ function EditProfile({ match }) {
       }
     })
     return function cleanup() {
-      abortController.cleanup();
+      abortController.abort()
     }
-  }, [match.params.userId]);
+  }, [match._id]);
 
   const clickSubmit = () => {
     const user = {
@@ -43,7 +44,7 @@ function EditProfile({ match }) {
       password: values.password || undefined
     }
     update({
-      userId: match.params.userId
+      userId: match._id
     }, {
       t: jwt.token
     }, user).then((data) => {
